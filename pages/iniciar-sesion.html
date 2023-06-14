@@ -1,0 +1,73 @@
+<!doctype HTML>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&family=PT+Sans+Narrow&display=swap" rel="stylesheet"> <!-- fuente personalizada de Google -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/> <!-- íconos material -->
+        <link rel="stylesheet" type="text/css" href="https://www.dafontfree.net/embed/Y29yYmVsLWJvbGQtaXRhbGljJmRhdGEvMTEvYy82MDg1My9Db3JiZWwudHRm"/> <!-- fuente Corbel -->
+        <link rel="stylesheet" type="text/css" href="../css/style.css"/> <!-- estilo de la página -->
+        <link rel="icon" href="img/icono.png">
+        <title>Iniciar sesión - Coding Master</title>
+    </head>
+    <body>
+        <header>
+            <a class="boton-menu-hamburguesa" href="javascript:mostrarMenu();">
+                <span id="icono-boton-menu-hamburguesa" class="material-symbols-outlined">menu</span><span id="texto-boton-menu-hamburguesa">Menú</span>
+            </a>
+            <img class="header-logo" alt="Coding Master">
+            <nav id="menu">
+                <ul>
+                    <li><a href="../index.html"><span class="centrar-verticalmente">Home</span></a></li>
+                    <li><a href="carreras.html"<span class="centrar-verticalmente">Carreras</span></a></li>
+                    <li><a href="inscribirme.html"><span class="centrar-verticalmente">Inscribirme</span></a></li>
+                    <li><a href="iniciar-sesion.html" class="activo"><span class="centrar-verticalmente">Iniciar sesión</span></a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <article>
+                    <center><h2 class="texto-degradado">Iniciar sesión</h2></center>
+                    <p>Inicia sesión para acceder al campus, clases, material de estudio y más.</p>
+                    <form>
+                        <label for="correo"><p>Usuario:</p></label>
+                        <input type="email" class="llenar" id="input-usuario" placeholder="Escribe tu usuario aquí"></input>
+                        <label for="contraseña"><p>Contraseña:</p></label>
+                        <input type="password" class="llenar" id="input-clave" placeholder="Escribe tu contraseña aquí"></input>
+                        <p id="estado" class="color-error"></p>
+                        <p><a href="javascript:restablecerClave();">Restablecer contraseña</a></p>
+                        <a href="javascript:iniciarSesion();" class="boton boton-grande boton-primario">Iniciar sesión</a> o bien <a href="inscribirme.html">Inscribirme</a>
+                    </form>
+                </article>
+            </section>
+        </main>
+        <footer>
+            <div class="footer">
+                <div class="enlaces">
+                    <ul>
+                        <li><a href="#">Políticas de cookies</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                    </ul>
+                    <p>Contacto: contacto@codingmaster.com</p>
+                </div>
+                <div class="redes">
+                    <a href="https://www.instagram.com"><img class="social" src="../img/instagram.png" alt="Instagram"></a>
+                    <a href="https://www.twitter.com"><img class="social" src="../img/twitter.png" alt="Twitter"></a>
+                    <a href="https://www.facebook.com"><img class="social" src="../img/facebook.png" alt="Facebook"></a>
+                    <a href="https://youtube.com"><img class="social" src="../img/youtube.png" alt="YouTube"></a>
+                    <a href="https://youtube.com"><img class="social" src="../img/linkedin.png" alt="Linked In"></a>
+                </div>
+            </div>
+            <div>
+                <a href="#" class="centrar">Volver al principio</a>
+                <br>
+                <span class="centrar">Coding Master © 2023 - Todos los derechos reservados</span>
+            </div>
+        </footer>
+    </body>
+    <script src="../scripts/menu-hamburguesa.js"></script>
+    <script src="../scripts/login.js"></script>
+</html>

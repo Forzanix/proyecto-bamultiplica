@@ -1,0 +1,100 @@
+<!doctype HTML>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&family=PT+Sans+Narrow&display=swap" rel="stylesheet"> <!-- fuente personalizada de Google -->
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/> <!-- íconos material -->
+        <link rel="stylesheet" type="text/css" href="https://www.dafontfree.net/embed/Y29yYmVsLWJvbGQtaXRhbGljJmRhdGEvMTEvYy82MDg1My9Db3JiZWwudHRm"/> <!-- fuente Corbel -->
+        <link rel="stylesheet" type="text/css" href="../css/style.css"/> <!-- estilo de la página -->
+        <link rel="icon" href="img/icono.png">
+        <title>Inscribirme - Coding Master</title>
+    </head>
+    <body>
+        <header>
+            <a class="boton-menu-hamburguesa" href="javascript:mostrarMenu();">
+                <span id="icono-boton-menu-hamburguesa" class="material-symbols-outlined">menu</span><span id="texto-boton-menu-hamburguesa">Menú</span>
+            </a>
+            <img class="header-logo" alt="Coding Master">
+            <nav id="menu">
+                <ul>
+                    <li><a href="../index.html"><span class="centrar-verticalmente">Home</span></a></li>
+                    <li><a href="carreras.html"><span class="centrar-verticalmente">Carreras</span></a></li>
+                    <li><a href="inscribirme.html" class="activo"><span class="centrar-verticalmente">Inscribirme</span></a></li>
+                    <li><a href="iniciar-sesion.html"><span class="centrar-verticalmente">Iniciar sesión</span></a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <article>
+                    <center><h2 class="texto-degradado">Inscribirme</h2></center>
+                    <p>Completá el formulario y nos pondremos en contacto con vos para que puedas realizar el pago y así completar la inscripción para estudiar lo antes posible.</p>
+                    <form>
+                        <label for="input-nombre-y-apellido"><p>Nombre y apellido (*):</p></label>
+                        <input type="text" class="llenar" id="input-nombre-y-apellido" placeholder="Escribe tu nombre y apellido aquí" required></input>
+                        <p class="color-error" id="estado-nombre-y-apellido"></p>
+                        <label><p>Sexo:</p></label>
+                        <input type="radio" id="radio-hombre" name="sexo" value="0"/><label for="radio-hombre">Hombre</label>
+                        <input type="radio" id="radio-mujer" name="sexo" value="1"/><label for="radio-mujer">Mujer</label>
+                        <input type="radio" id="radio-otro" name="sexo" value="2"/><label for="radio-otro">Otro</label>
+                        <p class="color-error" id="estado-sexo"></p>
+                        <label for="select-nacionalidad"><p>Nacionalidad:</p></label>
+                        <select id="select-nacionalidad" required>
+                            <option>Argentina</option>
+                            <option>Uruguay</option>
+                            <option>Paraguay</option>
+                            <option>Chile</option>
+                            <option>Colombia</option>
+                            <option>Perú</option>
+                            <option>Venezuela</option>
+                            <option>México</option>
+                        </select>
+                        <label for="input-correo"><p>Correo electrónico (*):</p></label>
+                        <input type="email" class="llenar" id="input-correo" placeholder="Escribe tu correo electrónico aquí" required></input>
+                        <p class="color-error" id="estado-correo"></p>
+                        <label for="correo"><p>Teléfono (colocar código de país, ejemplo: +54):</p></label>
+                        <input type="text" class="llenar" id="input-numero-de-telefono" placeholder="Escribe tu número de teléfono aquí"></input>
+                        <p class="color-error" id="estado-numero-de-telefono"></p>
+                        <label for="select-curso"><p>¿Qué curso te interesa?</p></label>
+                        <select id="select-curso" required>
+                            <option>Desarrollo Web: Front End</option>
+                            <option>Desarrollo Web: Back End</option>
+                            <option>Programación: Desarrollo de videojuegos</option>
+                        </select>
+                        <br>
+                        <a href="javascript:validarFormulario()" class="boton boton-primario boton-grande">Enviar formulario</a>
+                        <button type="reset" class="boton-secundario boton-grande">Borrar</button>
+                    </form>
+                </article>
+            </section>
+        </main>
+        <footer>
+            <div class="footer">
+                <div class="enlaces">
+                    <ul>
+                        <li><a href="#">Políticas de cookies</a></li>
+                        <li><a href="#">Términos y condiciones</a></li>
+                    </ul>
+                    <p>Contacto: contacto@codingmaster.com</p>
+                </div>
+                <div class="redes">
+                    <a href="https://www.instagram.com"><img class="social" src="../img/instagram.png" alt="Instagram"></a>
+                    <a href="https://www.twitter.com"><img class="social" src="../img/twitter.png" alt="Twitter"></a>
+                    <a href="https://www.facebook.com"><img class="social" src="../img/facebook.png" alt="Facebook"></a>
+                    <a href="https://youtube.com"><img class="social" src="../img/youtube.png" alt="YouTube"></a>
+                    <a href="https://youtube.com"><img class="social" src="../img/linkedin.png" alt="Linked In"></a>
+                </div>
+            </div>
+            <div>
+                <a href="#" class="centrar">Volver al principio</a>
+                <br>
+                <span class="centrar">Coding Master © 2023 - Todos los derechos reservados</span>
+            </div>
+        </footer>
+    </body>
+    <script type="text/javascript" src="../scripts/menu-hamburguesa.js"></script>
+    <script type="text/javascript" src="../scripts/script2.js"></script>
+</html>

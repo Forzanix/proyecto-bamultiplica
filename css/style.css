@@ -1,0 +1,582 @@
+/* diseño por Alex Nahuel Anschau */
+/* paleta de colores usada: https://colorhunt.co/ */
+
+/* #region Variables */
+:root {
+    --color-fondo: rgb(230,230,230); /* color de fondo de la página */
+    --color-fondo-footer: gainsboro;
+    --color-nav: rgba(200,200,200,0.5);
+    --color-texto: black; /* color predeterminado del texto de la página */
+    --color-texto-destacado: #967EEF; /* color del texto destacado */
+    --color-texto-gris: gray; /* color predeterminado para el texto del footer, por ejemplo. */
+    --color-foco: DeepSkyBlue; /* color que se utiliza para indicar que un elemento recibió foco, por ejemplo, un INPUT. */
+    --color-link: #967E76; /* color predeterminado de los enlaces de la página */
+    --color-error: red;
+    --color-advertencia: orange;
+    --color-ok: green;
+
+    /* colores de botones */
+    --color-boton: rgba(200,200,200,0.75);
+    --color-boton-primario: DarkCyan;
+    --color-boton-secundario: #967EEF;
+    --color-texto-boton-primario: white;
+    --color-texto-boton-secundario: white;
+
+    /* interfaz de usuario */
+    --sombra: 0px 2px 16px rgba(0,0,0,0.25); /* sombra */
+    --radio: 6px; /* radio de botones, cajas de texto, etc. */
+    --borde: 2px solid rgba(0,0,0,0.025); /* borde de botones, cajas de texto, etc. */
+    --degradado-fondo: linear-gradient(45deg,transparent,#F9D7FF);
+    --degradado-texto: linear-gradient(90deg, Turquoise, Magenta);
+    /* transición global */
+    --transicion: all 0.4s ease;
+}
+@media (prefers-color-scheme: dark) {
+    /* tema modo oscuro */
+    :root {
+        --color-fondo: rgb(32,32,32); /* color de fondo de la página */
+        --color-fondo-footer: rgb(48,48,48);
+        --color-nav: rgba(64,64,64,0.5);
+        --color-texto: white; /* color predeterminado del texto de la página */
+        --color-texto-destacado: #967EEF; /* color del texto destacado */
+        --color-texto-gris: gray; /* color predeterminado para el texto del footer, por ejemplo. */
+        --color-foco: DeepSkyBlue; /* color que se utiliza para indicar que un elemento recibió foco, por ejemplo, un INPUT. */
+        --color-link: #967E76; /* color predeterminado de los enlaces de la página */
+        --color-error: coral;
+        --color-advertencia: gold;
+        --color-ok: lime;
+
+        /* colores de botones */
+        --color-boton: rgba(200,200,200,0.75);
+        --color-boton-primario: DarkCyan;
+        --color-boton-secundario: #967EEF;
+        --color-texto-boton-primario: white;
+        --color-texto-boton-secundario: white;
+    
+        /* interfaz de usuario */
+        --sombra: 0px 2px 16px rgba(0,0,0,0.25); /* sombra */
+        --radio: 6px; /* radio de botones, cajas de texto, etc. */
+        --borde: 2px solid rgba(0,0,0,0.025); /* borde de botones, cajas de texto, etc. */
+        --degradado-fondo: linear-gradient(45deg,transparent,darkmagenta);
+        --degradado-texto: linear-gradient(90deg, Turquoise, Magenta);
+
+        /* transición global */
+        --transicion: all 0.4s ease;
+    }
+}
+/* #endregion */
+
+/* #region Barra de Scroll personalizada */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track { /* Pista */
+    box-shadow: inset 0px 2px 5px rgba(255,255,255,0.21);
+    border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb { /* Scroll */
+    background: linear-gradient(darkcyan,darkmagenta);
+    border-radius: 6px;
+    box-shadow: 0px 2px 16px rgba(0,0,0,0.25);
+}
+/* #endregion */
+/* #region Header, Nav y sus elementos */
+header {
+    margin: 0px;
+    padding: 0px;
+    display: block;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 40px;
+    min-height: 40px;
+    z-index: 100;
+    overflow: hidden;
+    /* apariencia */
+    border-bottom: 1px solid rgba(255,255,255,0.125);
+    background: var(--color-nav); /* el fondo del header está determinado por la variable --color-nav */
+    backdrop-filter: blur(24px); /* le da el fondo borroso */
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.25);
+    transition: height 0.25s linear;
+}
+header img.header-logo { /* logo del header */
+    margin-right: 8px;
+    padding: 0px;
+    display: inline-block;
+    height: 100%;
+    max-width: 220px;
+    max-height: 40px;
+    content:url(../img/logo.png);
+}
+header img:hover {
+    filter: brightness(1.125);
+}
+header nav {
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    display: inline-block;
+    height: 100%;
+    /* fuente */
+    font-family: 'Segoe UI';
+    font-size: 14px;
+}
+header nav ul { /* lista del nav */
+    margin: 0px;
+    padding: 0px;
+    display: inline-flex;
+    height: 100%;
+    list-style-type: none;
+}
+header nav li { /* elementos de la lista */
+    margin: 0px;
+    padding: 0px;
+}
+header nav a {
+    margin: 0;
+    padding: 0px 16px;
+    display: block;
+    box-sizing: border-box;
+    height: 100%;
+    color: rgba(255,255,255,0.75);
+    border-bottom: 3px solid transparent;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    transition: background-color 0.2s linear, color 0.2s linear;
+}
+header nav a:hover {
+    color: white;
+    text-decoration: none;
+    background-color: rgba(0,0,0,0.125);
+}
+header nav a:active {
+    background-color: rgba(0,0,0,0.20);
+}
+header nav a.activo { /* indicador de la página actual */
+    color: white;
+    background-color: rgba(0,0,0,0.25);
+    border-color: white;
+}
+/* #endregion */
+/* #region Menú hamburguesa */
+.boton-menu-hamburguesa {
+    display: none;
+    /* el contenedor que incluye el botón para abrir
+    el menú hamburguesa permanecerá oculto a menos que
+    se cumpla la condición del media query */
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 100px;
+    height: 40px;
+    color: rgba(255,255,255,0.5);
+    transition: var(--transicion);
+    text-transform: uppercase;
+    /* centrar icono usando flexbox */
+    justify-content: center;
+    align-items: center;
+}
+.boton-menu-hamburguesa:hover {
+    color: white;
+    background: rgb(0,128,255);
+    text-decoration: none;
+}
+.boton-menu-hamburguesa .material-symbols-outlined {
+    margin-right: 4px;
+}
+@media (width < 600px) {
+    header nav {
+        margin-top: 16px;
+        display: block;
+        width: 100%;
+        /* oculta el nav para poder abrirlo con el botón */
+    }
+    header nav ul {
+        display: block;
+    }
+    header nav li a.activo {
+        border-bottom: none;
+        border-left: 3px solid white;
+    }
+    header nav a {
+        height: 80px;
+    }
+    .menu-hamburguesa-visible {
+        /* los elementos del menú hamburguesa
+        se mostrarán al recibir esta clase
+        (sólo si se cumple el media query) */
+        height: 100vh;
+    }
+    .boton-menu-hamburguesa {
+        display: inline-flex;
+        /* muestra el botón para abrir el menú hamburguesa cuando el ancho 
+        visible de la página sea menor a 600 píxeles.
+        flexbox se usa para centrar el ícono. */
+    }
+}
+/* #endregion */
+/* #region Cuerpo */
+body {
+    margin: 0px;
+    padding: 0px;
+    background: var(--color-fondo);
+    font-family: 'Maven Pro', 'Segoe UI Light', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    color: var(--color-texto);
+    /* para que el footer siempre este abajo de todo: */
+}
+main {
+    min-height: 80vh; /* hace que el footer siempre esté al pie de la página */
+}
+/* #endregion */
+/* #region Footer & Elementos */
+footer {
+    margin: auto;
+    margin-top: 64px;
+    padding: 16px;
+    color: var(--color-texto-gris);
+    background: var(--color-fondo-footer);
+    border-top: 1px solid rgba(255,255,255,0.125);
+}
+footer li {
+    list-style-type: none;
+}
+div.footer {
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-start;
+    flex-wrap: nowrap;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+}
+div.enlaces {
+    margin: 0px;
+    padding: 0px;
+    flex: 1 0 auto;
+}
+div.redes {
+    margin-left: 44px;
+    max-width: auto;
+}
+/* #endregion */
+/* #region Artículos */
+article {
+    margin: auto;
+    margin-top: 64px;
+    padding: 0px 2%;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 800px;
+    text-align: justify;
+}
+article.principal {
+    margin: 0px;
+    padding: 0px;
+    width: 100%; /* para que este artículo cubra todo el ancho de la página */
+    height: 100vh; /* para que este artículo cubra toda la página visible */
+    max-width: 100%;
+    background-repeat: no-repeat; /* para que no se repita el fondo */
+    background-size: cover; /* para que la imagen de fondo cubra todo el artículo */
+    color: white; /* color del texto blanco para que se lea bien con la imagen de fondo */
+    display: flex; /* flexbox para centrar el contenido del article */
+    justify-content: center; /* centrar el contenido */
+    text-shadow: 0px 0px 8px black;
+}
+article.carreras {
+    width: 100%;
+    max-width: none;
+}
+/* #endregion /*
+
+/* #region Hs */
+h1 {
+    margin: 0px 16px;
+    padding: 0px;
+    display: inline;
+    font-family: 'Corbel';
+    font-weight: bold;
+    font-style: italic;
+    font-size: 48px;
+    color: white;
+    cursor: default;
+}
+h2 {
+    margin: 0px 0px 16px 0px;
+    padding: 0px;
+    font-size: 48px;
+}
+/* #endregion */
+/* #region DIVs */
+article.principal div.contenido {
+    margin: auto;
+    padding: 8px;
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+}
+div.carreras {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+}
+div.carrera {
+    flex: 2 1 200px;
+    margin: 4px;
+    padding: 16px;
+    min-height: 450px;
+    width: 40%;
+    max-width: 400px;
+    background: var(--degradado-fondo);
+    box-sizing: border-box;
+    border: var(--borde);
+    border-radius: 8px;
+    text-align: justify;
+    transition: var(--transicion);
+}
+div.curso:hover {
+    background: rgba(255,255,255,0.125);
+}
+div.curso table {
+    border: none;
+    width: 100%;
+}
+div.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+div.flex div.contenido {
+    width: 50%;
+    padding: 8px;
+}
+/* #endregion /*
+
+/* #region Links */
+a {
+    color: var(--color-link);
+    outline: none;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+/* #endregion */
+/* #region Cuadros de texto */
+input[type="radio"] {
+    border: var(--borde);
+    border-radius: 100;
+}
+input[type="text"], input[type="email"], input[type="password"], input[type="number"], select {
+    font: inherit;
+    margin: 0px;
+    padding: 8px;
+    border: var(--borde);
+    border-radius: var(--radio);
+    background: rgba(255,255,255,0.125);
+    color: inherit;
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.05);
+    outline: none;
+    transition: var(--transicion);
+}
+input[type="text"]:hover, input[type="email"]:hover, input[type="password"]:hover, input[type="number"], select:hover {
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+}
+input:active, input:focus, select:focus {
+    border-color: var(--color-foco);
+}
+select option {
+    margin: 40px;
+    background: black;
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+}
+/* #endregion */
+/* #region Formulario */
+form {
+    margin: 24px 16px;
+    padding: 16px;
+    background: rgba(255,255,255,0.125);
+    border-radius: var(--radio);
+    text-align: left;
+    box-shadow: var(--sombra);
+}
+/* #endregion */
+/* #region Botones */
+button, .boton {
+    margin-top: 16px;
+    padding: 8px;
+    border: none;
+    border-radius: var(--radio);
+    background: var(--color-boton);
+    min-width: 100px;
+    font-family: inherit; /* hereda la fuente del elemento que lo contiene. */
+    font-weight: bold; /* establece el grosor de al fuente a una gruesa */
+    text-transform: uppercase;
+    text-decoration: none;
+    outline: none;
+    backdrop-filter: blur(8px);
+    text-shadow: none;
+    box-shadow: 0px 1px 1px rgba(0,0,0,0.05);
+    transition: var(--transicion);
+}
+button:hover, .boton:hover {
+    filter: brightness(1.05) contrast(1.05); /* al pasar el cursor por encima de botón, este se 'iluminará'. */
+    text-decoration: none; /* evita que el texto sea subrayado si se usa un <A>*/
+    box-shadow: 0px 2px 4px rgba(0,0,0,0.1);/* añade una sombra mas intensa al pasar el cursor por encima. */
+}
+button:active, .boton:active {
+    filter: brightness(0.95) contrast(1.05);
+}
+button:focus, .boton:focus {
+    border-color: var(--color-foco);
+}
+/* #endregion */
+/* #region Imágenes */
+img.social {
+    margin: 0px;
+    padding: 8px;
+    width: 16px;
+    height: 16px;
+    transition: var(--transicion);
+}
+img.social:hover {
+    filter: brightness(1.25) drop-shadow(0px 0px 4px white);
+}
+/* #endregion */
+/* #region Marcos IFrame */
+iframe.video {
+    width: 100%;
+    height: 600px;
+}
+/* #endregion */
+/* #region Clases varias */
+.boton-primario {
+    color: var(--color-texto-boton-primario);
+    background: var(--color-boton-primario);
+}
+.boton-secundario {
+    color: var(--color-texto-boton-secundario);
+    background: var(--color-boton-secundario);
+}
+.boton-grande {
+    padding: 12px 16px;
+}
+.fondo-programacion {
+    background: url('../img/programacion.jpg');
+}
+.texto-degradado {
+    background: var(--degradado-texto); /* establece el degradado de fondo */
+    background-clip: text; /* recorta el fondo para que sólo quede el texto */
+    -webkit-background-clip: text; /* lo mismo de arriba, pero para chrome */
+    -webkit-text-fill-color: transparent; /* hace que el fondo del texto sea transparente */
+}
+.precio {
+    margin: 4px;
+    color: var(--color-texto-destacado);
+    font-size: 32px;
+}
+.llenar {
+    box-sizing: border-box;
+    width: 100%;
+}
+.icono {
+    color: #9BABB8;
+    font-size: 32px;
+}
+.color-error {
+    color: var(--color-error);
+}
+.centrar-verticalmente {
+    display: inline-flex;
+    width: auto;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.centrar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.margen-grande {
+    margin: 16px;
+}
+/* #endregion */
+
+
+
+/* #region Elementos de: Testimonios */
+div.testimonio {
+    margin: 0px 0px 32px 0px;
+    padding: 16px;
+    background: var(--degradado-fondo);
+    border-radius: 6px;
+}
+div.testimonio img.foto {
+    margin: 0px 16px 0px 0px;
+    padding: 0px;
+    width: 80px;
+    height: 80px;
+    float: left;
+    border: 4px solid gray;
+    border-radius: 50%;
+}
+div.testimonio h3 {
+    margin: 0px;
+    padding: 0px;
+}
+div.testimonio div.valoracion {
+    margin: 0px;
+    padding: 0px;
+    height: 12px;
+}
+div.testimonio div.valoracion img {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+}
+/* #endregion */
+
+/* #region Media Queries */
+@media (width < 600px) {
+    body {
+        font-size: 14px;
+    }
+    h1 {
+        font-size: 32px;
+    }
+    h2 {
+        font-size: 32px;
+    }
+    div.redes {
+        float: none;
+    }
+    div.enlaces {
+        float: none;
+    }
+    iframe.video {
+        height: 200px;
+    }
+}
+@media (width < 400px) {
+    body {
+        font-size: 12px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    h2 {
+        font-size: 24px;
+    }
+}
+/* #endregion */
